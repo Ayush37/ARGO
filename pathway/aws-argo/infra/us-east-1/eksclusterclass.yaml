@@ -26,5 +26,5 @@ specTemplate:
     nodeAutoScalingGroupMaxSize: 3
     nodeAutoScalingGroupMinSize: 3
     nodeGroupName: argo-east-nodes
-    nodeInstanceType: m3.large
+    nodeInstanceType: m5.large
   writeConnectionSecretsToNamespace: crossplane-system
