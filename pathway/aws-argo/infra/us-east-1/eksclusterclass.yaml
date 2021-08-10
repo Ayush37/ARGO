@@ -23,8 +23,8 @@ specTemplate:
   workerNodes:
     clusterControlPlaneSecurityGroupRef:
       name: argo-east-eks-securitygroup
-    nodeAutoScalingGroupMaxSize: 1
-    nodeAutoScalingGroupMinSize: 1
+    nodeAutoScalingGroupMaxSize: 3
+    nodeAutoScalingGroupMinSize: 3
     nodeGroupName: argo-east-nodes
-    nodeInstanceType: m3.medium
+    nodeInstanceType: m3.large
   writeConnectionSecretsToNamespace: crossplane-system
