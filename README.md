@@ -1,5 +1,5 @@
 # ARGO
-## ARGO CD and ARGO Workflow demo
+## ARGO CD and ARGO Workflow demo (Some ascpects of the code is reused from AWS and crossplane repos)
 
 To setup crossplance on an existing EKS or local K8's cluster
 
