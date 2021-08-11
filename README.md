@@ -1,10 +1,10 @@
 # ARGO
 ## ARGO CD and ARGO Workflow demo (Some ascpects of the code is reused from AWS and crossplane repos)
 
-To setup crossplance on an existing EKS or local K8's cluster
+To setup crossplane on an existing EKS or local K8's cluster
 
  ``` 
- kubectl create namespace crossplane-system
+kubectl create namespace crossplane-system
 helm repo add crossplane-alpha https://charts.crossplane.io/alpha
 helm install crossplane --namespace crossplane-system crossplane-alpha/crossplane --version 0.8.0 --set clusterStacks.aws.deploy=true --set clusterStacks.aws.version=v0.6.0 --disable-openapi-validation 
 
@@ -87,7 +87,24 @@ spec:
  Now we will install a sample app in each using https://github.com/Ayush37/ARGO/tree/main/pathway/aws-argo/app-1 yamls
  
   
- Continued....
+# Deploy sample app across multi-cloud clusters (In this case we are deploying it across 2 AWS zones)
+
+ Wordpress needs php and mysql as basic pre-reqs which are mostly satisfied by our earlier infra deployments (We used a RDSInstanceClass for MySql)
+ 
+Creating these resources causes Crossplane to provision an Amazon RDS instance, obtain the connection information, then inject it into the WordPress application 
+that it deploys to our Amazon EKS cluster in us-west-2. 
+When this process is complete, you should see a Secret appear in the Argo CD UI that is associated with the MySQLInstance.
+
+Create a similar application and use pathway/aws-argo/app-1 as path:
+ 
+After succesfull creation we should be able to see a Secret appear in the Argo CD UI that is associated with the MySQLInstance.
+ 
+ ![image](https://user-images.githubusercontent.com/19201225/128952607-6002ac06-4795-4353-9862-9ad393590be4.png)
+
+ 
+Gather its loadbalancer's hostname at the bottom of the YAML manifest.
+ 
+ ![image](https://user-images.githubusercontent.com/19201225/128952588-0082a409-9191-4882-b199-975e970b15e9.png)
 
 
 
