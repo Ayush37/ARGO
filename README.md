@@ -1,6 +1,7 @@
 # ARGO
 ## ARGO CD and ARGO Workflow demo (Some ascpects of the code is reused from AWS and crossplane repos)
 
+We shall try to deploy a sample application on EKS across 2 AWS regions using declarative syntax
 To setup crossplane on an existing EKS or local K8's cluster
 
  ``` 
